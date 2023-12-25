@@ -1,5 +1,4 @@
 // Description: This file contains the logic for the pricing page.
-// Last modified: 2021-08-22
 // =====================================================================================================================
 //  Expected url params:
 //      su: The url to redirect to after a successful payment.
@@ -9,7 +8,7 @@
 // =====================================================================================================================
 
 const urlParams = new URLSearchParams(window.location.search);
-const baseUrl = "https://app.meet2know.com/app"
+const baseUrl = "https://YOUR_VCITA_DOMAIN/app"
 initPage();
 
 function initPage(){
