@@ -68,53 +68,44 @@ let businessUid =  null;
     // End the request, sending it off
     req.end();
   }
-  
+  // create an admin user object
+  const admin={  
+    "country_name": "United States",  
+    "display_name": "DName",  
+    "email": "[adminemail@email.com](mailto:adminemail@email.com)",  
+    "first_name": "FName",  
+    "language": "en",  
+    "last_name": "LName",  
+    "phone": "+154863488",  
+    "user_id": "11111"  
+  };
+  // create a business object
+  const business={  
+    "business_category": "aeroclub",  
+    "business_maturity_in_years": "0.5",  
+    "country_name": "United States",  
+    "id": "1a123b456c789",  
+    "landing_page": "Homepage",  
+    "name": "Business name",  
+    "short_description": "My business description"  
+  };
+  // create a business meta object
+const businessMeta={  
+    "auth_token": "a1a1a1a1a1",  
+    "external_reference_id": "1213444", 
+    "in_setup": "true",  
+    "intents": [  
+      "accept_payments_tile",  
+      "documents_and_forms"  
+    ],  
+    "is_template": "false"
+  };
   // Step 2: Create the business account
   
-  const data = JSON.stringify({  // the data holds the admin account and the business details
-    "admin_account": {  
-      "country_name": "United States",  
-      "display_name": "DName",  
-      "email": "[adminemail@email.com](mailto:adminemail@email.com)",  
-      "first_name": "FName",  
-      "language": "en",  
-      "last_name": "LName",  
-      "phone": "+154863488",  
-      "user_id": "11111"  
-    },  
-    "business": {  
-      "business_category": "aeroclub",  
-      "business_maturity_in_years": "0.5",  
-      "country_name": "United States",  
-      "id": "1a123b456c789",  
-      "landing_page": "Homepage",  
-      "name": "Business name",  
-      "short_description": "My business description"  
-    },  
-    "integrations": {},  
-    "meta": {  
-      "auth_token": "a1a1a1a1a1",  
-      "external_id": "1213444",  
-      "identities": [  
-        "aaa123",  
-        "bbb345",  
-        "1a3c4f4h"  
-      ],  
-      "in_setup": "false",  
-      "intents": [  
-        "accept_payments_tile",  
-        "documents_and_forms"  
-      ],  
-      "is_template": "true",  
-      "marketing_channel": "Client Channel",  
-      "note": "Client Note",  
-      "plan": {  
-        "expires_on": "2022-06-14T09:31:21.000",  
-        "external_subscription_params": "\*\*\*",  
-        "plan_name": "Essential"  
-      },  
-      "tags": "Client tag1, Client tag2"  
-    }  
+  const data = JSON.stringify({  
+    "admin_account": admin,  
+    "business": business,
+    "meta": businessMeta
   });
 // Create the business account
 createBusiness(options, data, (error, buid) => {
