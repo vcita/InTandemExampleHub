@@ -11,7 +11,7 @@ This project is a simple chat application that interacts with the BizAI API usin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/bizai-chat-app.git
+   git clone https://github.com/vcita/inTandem-Code-Samples/tree/master/BizAI-SimpleAIChat
    cd bizai-chat-app
    ```
 
