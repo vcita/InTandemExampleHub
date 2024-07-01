@@ -15,12 +15,10 @@ This project is a simple chat application that interacts with the BizAI API usin
    cd bizai-chat-app
    ```
 
-2. Replace `YOUR_API_KEY` in `app.js` with your actual BizAI API key.
-
-3. Open `index.html` in a web browser.
+2. Open `index.html` in a web browser.
 
 ### Usage
-
+- Paste your business token in to the business token input box (The business token can be found under settings>intergations>webhooks)
 - Click the "New Chat" button to start a new conversation.
 - Type your message in the input field and click "Send" to communicate with BizAI.
 
