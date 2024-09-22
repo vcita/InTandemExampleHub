@@ -19,29 +19,27 @@ function initPage(){
 }
 
 function disableCurrentPlan(){
-    
     const currentPlanName = getUrlParamValue("plan")
     const currentPlanContainer = document.getElementById(currentPlanName)
     currentPlanContainer.classList.add("disabled")
 
-    // remove recommended badge
+    // Remove recommended badge
     if (currentPlanName === "business") {
         const badge = currentPlanContainer.getElementsByClassName("badge")[0]
         badge.remove()
     }
 }
+
 function setCancelUrl() {
-    const cancelePath = getUrlParamValue("cu")
-    const url = `${baseUrl}/${cancelePath}`
-    
-    // get element
     const headerContainers = document.getElementsByClassName("header")[0]
     const linkElement = headerContainers.getElementsByTagName("a")[0]
     
-    linkElement.setAttribute("href", url)
+    linkElement.setAttribute("href", `${baseUrl}/${getUrlParamValue("cu")}`)
 }
+
 function setPricesUrls() {
     const planContainers = document.getElementsByClassName("pricing-plan")
+
     for (let planContainer of planContainers) {
         const selectedPlanName = planContainer.getAttribute("id")
         const path = getUrlParamValue("su")
@@ -49,13 +47,17 @@ function setPricesUrls() {
         const linkElement = planContainer.getElementsByTagName("a")[0]
         linkElement.setAttribute("href", url)
     }
+
     return true
 }
+
 function buildPriceUrl(urlPath, plan) {
     const currentPlanName = getUrlParamValue("plan")
-    url = `${baseUrl}/${urlPath}?plan=${plan}&billing=monthly&current_plan=${currentPlanName}`;
-    return url;
+    const backUrl = `/${getUrlParamValue("cu")}`;
+
+    return `${baseUrl}/${urlPath}?plan=${plan}&billing=monthly&cancelUrl=${backUrl}&successUrl=${backUrl}`;
 }
+
 function getUrlParamValue(paramName) {
     return urlParams.get(paramName)
 }
