@@ -9,7 +9,7 @@
 // =====================================================================================================================
 
 const urlParams = new URLSearchParams(window.location.search);
-const baseUrl = "https://app.meet2know.com/app"
+const baseUrl = "https://app.meet2know.com"
 const successUrl = urlParams.get("su")
 const cancelUrl = urlParams.get("cu")
 
@@ -53,6 +53,5 @@ function setPricesUrls() {
 }
 
 function buildPriceUrl(plan) {
-    return `${baseUrl}/${successUrl}?plan=${plan}&cu=${cancelUrl}&su=${successUrl}`;
+    return `${baseUrl}/${successUrl}?plan=${plan}&cancelUrl=${cancelUrl}&successUrl=${successUrl}`;
 }
-
