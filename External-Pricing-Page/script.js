@@ -53,5 +53,5 @@ function setPricesUrls() {
 }
 
 function buildPriceUrl(plan) {
-    return `${baseUrl}/${successUrl}?plan=${plan}&cancelUrl=${cancelUrl}&successUrl=${successUrl}`;
+    return `${baseUrl}${successUrl}?plan=${plan}&cancelUrl=${cancelUrl}&successUrl=${successUrl}`;
 }
