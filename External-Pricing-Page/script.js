@@ -10,6 +10,9 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const baseUrl = "https://app.meet2know.com/app"
+const successUrl = urlParams.get("su")
+const cancelUrl = urlParams.get("cu")
+
 initPage();
 
 function initPage(){
@@ -19,7 +22,7 @@ function initPage(){
 }
 
 function disableCurrentPlan(){
-    const currentPlanName = getUrlParamValue("plan")
+    const currentPlanName = urlParams.get("plan")
     const currentPlanContainer = document.getElementById(currentPlanName)
     currentPlanContainer.classList.add("disabled")
 
@@ -34,16 +37,14 @@ function setCancelUrl() {
     const headerContainers = document.getElementsByClassName("header")[0]
     const linkElement = headerContainers.getElementsByTagName("a")[0]
     
-    linkElement.setAttribute("href", `${baseUrl}/${getUrlParamValue("cu")}`)
+    linkElement.setAttribute("href", `${baseUrl}/${cancelUrl}`)
 }
 
 function setPricesUrls() {
     const planContainers = document.getElementsByClassName("pricing-plan")
 
     for (let planContainer of planContainers) {
-        const selectedPlanName = planContainer.getAttribute("id")
-        const path = getUrlParamValue("su")
-        const url = buildPriceUrl(path, selectedPlanName) 
+        const url = buildPriceUrl(planContainer.getAttribute("id"))
         const linkElement = planContainer.getElementsByTagName("a")[0]
         linkElement.setAttribute("href", url)
     }
@@ -51,13 +52,7 @@ function setPricesUrls() {
     return true
 }
 
-function buildPriceUrl(urlPath, plan) {
-    const currentPlanName = getUrlParamValue("plan")
-    const backUrl = `/${getUrlParamValue("cu")}`;
-
-    return `${baseUrl}/${urlPath}?plan=${plan}&billing=monthly&cancelUrl=${backUrl}&successUrl=${backUrl}`;
+function buildPriceUrl(plan) {
+    return `${baseUrl}/${successUrl}?plan=${plan}&cu=${cancelUrl}&su=${successUrl}`;
 }
 
-function getUrlParamValue(paramName) {
-    return urlParams.get(paramName)
-}
