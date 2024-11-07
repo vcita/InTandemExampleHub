@@ -37,7 +37,7 @@ function setCancelUrl() {
     const headerContainers = document.getElementsByClassName("header")[0]
     const linkElement = headerContainers.getElementsByTagName("a")[0]
 
-    linkElement.setAttribute("href", `${baseUrl}${cancelUrl}`)
+    linkElement.setAttribute("href", `${baseUrl}/${cancelUrl}`)
 }
 
 function setPricesUrls() {
@@ -53,5 +53,5 @@ function setPricesUrls() {
 }
 
 function buildPriceUrl(plan) {
-    return `${baseUrl}${successUrl}?plan=${plan}&cu=${cancelUrl}&su=${successUrl}`;
+    return `${baseUrl}/${successUrl}?plan=${plan}&cu=${cancelUrl}&su=${successUrl}`;
 }
