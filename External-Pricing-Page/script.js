@@ -53,5 +53,5 @@ function setPricesUrls() {
 }
 
 function buildPriceUrl(plan) {
-    return `${baseUrl}/${successUrl}?plan=${plan}&cu=${cancelUrl}&su=${successUrl}`;
+    return `${baseUrl}/app/settings/paygateproxy?plan=${plan}&cu=${cancelUrl}&su=${successUrl}`;
 }
