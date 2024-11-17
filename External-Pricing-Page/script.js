@@ -1,5 +1,5 @@
 // Description: This file contains the logic for the pricing page.
-// Last modified: 2021-08-22
+// Last modified: 2021-11-14
 // =====================================================================================================================
 //  Expected url params:
 //      su: The url to redirect to after a successful payment.
